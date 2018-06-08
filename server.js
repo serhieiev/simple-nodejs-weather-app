@@ -10,7 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
-  res.render('index', {weather: null, error: null});
+  let envVars = JSON.stringify(process.env, null, 4);
+  res.render('index', {weather: envVars, error: null});
 })
 
 app.post('/', function (req, res) {
